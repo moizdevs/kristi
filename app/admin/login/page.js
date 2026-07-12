@@ -8,6 +8,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [agree, setAgree] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -16,6 +17,7 @@ const LoginPage = () => {
       alert("You must agree to terms and conditions");
       return;
     }
+    setIsSubmitting(true)
     try {
       const res = await fetch("/api/login", {
         method: "POST",
@@ -23,11 +25,15 @@ const LoginPage = () => {
         body: JSON.stringify({ username, password }),
       });
       const response = await res.json();
-      if (response.status === 200) router.push("/admin/dashboard");
-      else alert(response.message);
+      if (response.status === 200) {
+        router.push("/admin/dashboard")
+      } else {
+        alert(response.message)
+      };
     } catch {
       alert("Something went wrong");
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -121,9 +127,10 @@ const LoginPage = () => {
           {/* Submit */}
           <button
             type="submit"
+            disabled={isSubmitting}
             className="w-full py-3 mt-1 bg-linear-to-r from-[#7c6fff] to-[#534AB7] text-white text-sm font-medium rounded-xl hover:opacity-90 active:scale-[0.98] transition cursor-pointer"
           >
-            Sign in to Dashboard
+            {isSubmitting ? "Signing In...":"Sign in to Dashboard"}
           </button>
         </form>
 

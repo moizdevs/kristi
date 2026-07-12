@@ -7,7 +7,7 @@ export async function proxy(request) {
   const token = request.cookies.get("token")?.value;
   const { pathname } = request.nextUrl;
 
-  // 🔒 Protect admin dashboard
+  // Protect admin dashboard
   if (!token && pathname.startsWith("/admin/dashboard")) {
     return NextResponse.redirect(new URL("/admin/login", request.url));
   }
@@ -19,7 +19,7 @@ export async function proxy(request) {
   try {
     await jwtVerify(token, secret);
 
-    // ✅ Logged-in admin should not access login again
+    // Logged-in admin should not access login again
     if (pathname.startsWith("/admin/login")) {
       return NextResponse.redirect(
         new URL("/admin/dashboard", request.url)

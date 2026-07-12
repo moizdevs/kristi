@@ -226,13 +226,13 @@ const Dashboard = () => {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-100 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-purple-50 to-slate-100 p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
 
         {/* ── HEADER ── */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Dashboard Overview
             </h1>
             <p className="text-gray-600 mt-1 text-sm sm:text-base">
@@ -256,11 +256,11 @@ const Dashboard = () => {
               className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${m.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                className={`absolute inset-0 bg-linear-to-br ${m.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
               />
               <div className="relative p-4 sm:p-5 lg:p-6">
                 <div
-                  className={`inline-flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${m.gradient} mb-3 shadow-md`}
+                  className={`inline-flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-linear-to-br ${m.gradient} mb-3 shadow-md`}
                 >
                   <span className="text-lg sm:text-xl">{m.icon}</span>
                 </div>
@@ -286,7 +286,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div
-                className={`h-1 bg-gradient-to-r ${m.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
+                className={`h-1 bg-linear-to-r ${m.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
               />
             </div>
           ))}

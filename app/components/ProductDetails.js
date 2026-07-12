@@ -155,7 +155,6 @@ export default function ProductDetails(props) {
       return;
     }
 
-    console.log(report);
 
     setReport({});
     setShowReport(false);

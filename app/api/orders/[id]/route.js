@@ -1,5 +1,6 @@
 import connectToDatabase from "@/lib/dbConnect";
 import { Order } from "@/Models/Order";
+import { Product } from "@/Models/Product";
 
 export async function GET(request, { params }) {
   await connectToDatabase();

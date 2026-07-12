@@ -26,6 +26,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { logout } from "@/lib/logout";
 
 ChartJS.register(
   CategoryScale,
@@ -87,12 +88,18 @@ const Page = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case "dashboard": return <Dashboard />;
-      case "orders": return <Orders />;
-      case "collections": return <Collections />;
-      case "products": return <Products />;
-      case "reviews": return <Reviews />;
-      case "reports": return <Reports />;
+      case "dashboard":
+        return <Dashboard />;
+      case "orders":
+        return <Orders />;
+      case "collections":
+        return <Collections />;
+      case "products":
+        return <Products />;
+      case "reviews":
+        return <Reviews />;
+      case "reports":
+        return <Reports />;
       default:
         return (
           <div className="bg-white p-8 rounded-2xl shadow-lg">
@@ -110,7 +117,6 @@ const Page = () => {
 
   return (
     <div className="h-screen flex bg-linear-to-br from-slate-50 via-purple-50 to-slate-100">
-
       {/* ── Sidebar (desktop only) ── */}
       <aside
         className={`hidden md:flex bg-black shadow-2xl transition-all duration-300 ease-in-out ${
@@ -121,7 +127,9 @@ const Page = () => {
 
         {/* Header */}
         <div className="relative p-6 border-b border-slate-700/50 flex items-center justify-between">
-          <div className={`flex items-center gap-3 ${!sidebarOpen && "justify-center w-full"}`}>
+          <div
+            className={`flex items-center gap-3 ${!sidebarOpen && "justify-center w-full"}`}
+          >
             {sidebarOpen ? (
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -147,9 +155,15 @@ const Page = () => {
             } p-2 cursor-pointer bg-slate-800 hover:bg-slate-700 rounded-full transition-all duration-200 shadow-lg border border-slate-600 z-10 group`}
           >
             {sidebarOpen ? (
-              <ChevronLeft size={18} className="text-slate-300 group-hover:text-white transition-colors" />
+              <ChevronLeft
+                size={18}
+                className="text-slate-300 group-hover:text-white transition-colors"
+              />
             ) : (
-              <ChevronRight size={18} className="text-slate-300 group-hover:text-white transition-colors" />
+              <ChevronRight
+                size={18}
+                className="text-slate-300 group-hover:text-white transition-colors"
+              />
             )}
           </button>
         </div>
@@ -171,7 +185,9 @@ const Page = () => {
               }}
             >
               {activeTab === id && (
-                <div className={`absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b ${gradient} rounded-r-full`} />
+                <div
+                  className={`absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b ${gradient} rounded-r-full`}
+                />
               )}
               <div
                 className={`flex items-center justify-center w-6 h-6 rounded-lg transition-all duration-300 ${
@@ -180,19 +196,29 @@ const Page = () => {
                     : "bg-slate-800 group-hover:bg-slate-700"
                 }`}
               >
-                <div className={activeTab === id ? "text-white" : "text-slate-400 group-hover:text-slate-200"}>
+                <div
+                  className={
+                    activeTab === id
+                      ? "text-white"
+                      : "text-slate-400 group-hover:text-slate-200"
+                  }
+                >
                   {icon}
                 </div>
               </div>
               <span
                 className={`font-semibold transition-all duration-300 ${!sidebarOpen && "opacity-0 w-0"} ${
-                  activeTab === id ? "text-white" : "text-slate-400 group-hover:text-slate-200"
+                  activeTab === id
+                    ? "text-white"
+                    : "text-slate-400 group-hover:text-slate-200"
                 }`}
               >
                 {label}
               </span>
               {activeTab !== id && (
-                <div className={`absolute inset-0 bg-linear-to-r ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`} />
+                <div
+                  className={`absolute inset-0 bg-linear-to-r ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`}
+                />
               )}
             </button>
           ))}
@@ -211,7 +237,10 @@ const Page = () => {
                   <p className="text-xs text-slate-400">admin@store.com</p>
                 </div>
               </div>
-              <button className="w-full py-2 bg-slate-800 cursor-pointer hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-all duration-200">
+              <button
+                onClick={() => logout()}
+                className="w-full py-2 bg-slate-800 cursor-pointer hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-sm font-medium transition-all duration-200"
+              >
                 Sign Out
               </button>
             </div>
@@ -221,7 +250,6 @@ const Page = () => {
 
       {/* ── Main content ── */}
       <main className="flex-1 flex flex-col overflow-hidden">
-
         {/* Mobile top bar */}
         <header className="md:hidden bg-black border-b border-slate-700/50 px-4 py-3 flex items-center gap-3 flex-shrink-0">
           <div className="w-8 h-8 bg-linear-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
@@ -231,9 +259,13 @@ const Page = () => {
             <h1 className="text-sm font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent leading-none">
               Admin Panel
             </h1>
-            <p className="text-xs text-slate-400 leading-none mt-0.5">Manage your store</p>
+            <p className="text-xs text-slate-400 leading-none mt-0.5">
+              Manage your store
+            </p>
           </div>
-          <div className="ml-auto text-xs text-slate-400 capitalize">{activeTab}</div>
+          <div className="ml-auto text-xs text-slate-400 capitalize">
+            {activeTab}
+          </div>
         </header>
 
         {/* Scrollable content area — pb-20 reserves space for mobile bottom nav */}
@@ -253,7 +285,9 @@ const Page = () => {
           >
             {/* Active pill indicator */}
             {activeTab === id && (
-              <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-linear-to-r ${gradient}`} />
+              <span
+                className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-linear-to-r ${gradient}`}
+              />
             )}
             <div
               className={`flex items-center justify-center w-7 h-7 rounded-lg transition-all duration-200 ${
@@ -262,7 +296,9 @@ const Page = () => {
                   : "bg-slate-800 group-hover:bg-slate-700"
               }`}
             >
-              <div className={`${activeTab === id ? "text-white" : "text-slate-400"} [&>svg]:w-4 [&>svg]:h-4`}>
+              <div
+                className={`${activeTab === id ? "text-white" : "text-slate-400"} [&>svg]:w-4 [&>svg]:h-4`}
+              >
                 {icon}
               </div>
             </div>
@@ -279,13 +315,30 @@ const Page = () => {
 
       <style jsx global>{`
         @keyframes slideIn {
-          from { opacity: 0; transform: translateX(-20px); }
-          to   { opacity: 1; transform: translateX(0);      }
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: rgba(0,0,0,.05); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #a855f7, #ec4899); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #9333ea, #db2777); }
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.05);
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, #a855f7, #ec4899);
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, #9333ea, #db2777);
+        }
       `}</style>
     </div>
   );

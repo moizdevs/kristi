@@ -210,14 +210,14 @@ export default function Orders() {
                   <td className="py-3 pr-3">
                     <button
                       onClick={() => openModal(order)}
-                      className="text-blue-600 hover:text-blue-800 underline text-xs sm:text-sm"
+                      className="text-blue-600 hover:text-blue-800 cursor-pointer underline text-xs sm:text-sm"
                     >
                       #{order._id.slice(-6)}
                     </button>
                   </td>
 
                   <td className="py-3 pr-3">
-                    <div className="font-medium text-gray-800 text-xs sm:text-sm truncate max-w-[90px] sm:max-w-none">
+                    <div className="font-medium text-gray-800 text-xs sm:text-sm truncate max-w-22.5 sm:max-w-none">
                       {order.buyerName}
                     </div>
                   </td>
@@ -247,7 +247,7 @@ export default function Orders() {
                   <td className="py-3 text-right">
                     <button
                       onClick={() => deleteOrder(order._id)}
-                      className="text-red-500 hover:text-red-700 text-xs sm:text-sm font-medium"
+                      className="text-red-500 hover:text-red-700 text-xs sm:text-sm cursor-pointer font-medium"
                     >
                       Delete
                     </button>

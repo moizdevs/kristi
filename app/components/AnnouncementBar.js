@@ -39,7 +39,7 @@ const AnnouncementBar = () => {
     <div className="bg-black sticky z-20 text-white text-xs md:text-sm py-2 px-3 md:px-4 flex items-center justify-between gap-2">
       {/* Left: Welcome + social icons — hidden on mobile */}
       <div className="hidden md:flex items-center gap-2 basis-[33%]">
-        <span className="whitespace-nowrap">Welcome to KristLink store!</span>
+        <span className="whitespace-nowrap">Welcome to Kristi store!</span>
         <Link href="#">
           <HugeiconsIcon icon={Facebook02Icon} size={18} />
         </Link>

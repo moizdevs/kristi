@@ -47,7 +47,7 @@ const Banner = () => {
           <img
             src={banner.image}
             alt={banner.alt}
-            className="w-full object-cover aspect-16/9 sm:aspect-16/7 md:aspect-[21/7.6]"
+            className="w-full object-cover aspect-video sm:aspect-16/7 md:aspect-[21/7.6]"
           />
         </SwiperSlide>
       ))}
