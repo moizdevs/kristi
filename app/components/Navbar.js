@@ -120,7 +120,6 @@ const Navbar = () => {
     ["/", "Home"],
     ["/shop", "Shop"],
     ["/arrivals", "New Arrivals"],
-    ["/orders", "Orders"],
     ["/contact", "Contact"],
   ];
 
