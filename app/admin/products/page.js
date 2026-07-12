@@ -287,7 +287,7 @@ const Page = () => {
 
       {/* Products Grid */}
       {products.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 max-[1200px]:grid-cols-3 max-[930px]:grid-cols-2 mx-auto w-11/12 gap-6">
           {products.map((product, index) => (
             <div
               key={product._id}
@@ -340,20 +340,20 @@ const Page = () => {
 
               {/* Product Info */}
               <div className="p-5">
-                <h3 className="font-bold text-gray-900 text-lg mb-2 line-clamp-2 min-h-14">
+                <h3 className="font-bold text-gray-900 text-sm md:text-lg mb-2 line-clamp-2">
                   {product.title}
                 </h3>
-                <p className="text-sm text-gray-500 line-clamp-2 mb-4 min-h-14">
+                <p className="text-[10px] text-ellipsis line-clamp-2 md:text-sm text-gray-500">
                   {product.description}
                 </p>
 
                 {/* Pricing */}
                 <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-2xl font-bold text-gray-900">
+                  <span className="text-sm font-bold text-gray-900">
                     Rs. {product.price.toLocaleString()}
                   </span>
                   {product.compareAtPrice && (
-                    <span className="text-sm text-gray-400 line-through">
+                    <span className="text-[10px] text-gray-400 line-through">
                       Rs. {product.compareAtPrice.toLocaleString()}
                     </span>
                   )}
