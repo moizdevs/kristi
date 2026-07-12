@@ -3,6 +3,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,17 +12,20 @@ import "swiper/css/navigation";
 const banners = [
   {
     id: 1,
-    image: "/Header-1.png",
-    alt: "Latest Mobile Accessories",
+    imageLarge: "/Header-1.png",
+    imageSmall: "/Header-mobile-1.png",
+    alt: "Latest Trends in Fashion",
   },
   {
     id: 2,
-    image: "/Header-2.png",
-    alt: "Premium Headphones & Earbuds",
+    imageLarge: "/Header-2.png",
+    imageSmall: "/Header-mobile-2.png",
+    alt: "Exclusive Collection of Outfits",
   },
   {
     id: 3,
-    image: "/Header-3.png",
+    imageLarge: "/Header-3.png",
+    imageSmall: "/Header-mobile-3.png",
     alt: "Premium Gents Suits",
   },
 ];
@@ -44,11 +48,25 @@ const Banner = () => {
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
-          <img
-            src={banner.image}
-            alt={banner.alt}
-            className="w-full object-cover aspect-video sm:aspect-16/7 md:aspect-[21/7.6]"
-          />
+          <>
+            <Image
+              src={banner.imageLarge}
+              alt={banner.alt}
+              width={1920}
+              height={700}
+              className="hidden md:block w-full h-auto"
+              priority={banner.id === 1}
+            />
+
+            <Image
+              src={banner.imageSmall}
+              alt={banner.alt}
+              width={768}
+              height={960}
+              className="block md:hidden w-full h-auto"
+              priority={banner.id === 1}
+            />
+          </>
         </SwiperSlide>
       ))}
     </Swiper>
