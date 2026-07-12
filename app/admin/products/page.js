@@ -267,19 +267,19 @@ const Page = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white backdrop-blur-sm border-b border-slate-200 sticky top-0 z-10 p-6">
+      <div className="bg-white backdrop-blur-sm border-b text-base border-slate-200 sticky top-0 z-10 p-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Product Inventory</h1>
+            <h1 className="md:text-2xl font-bold text-gray-900">Product Inventory</h1>
             <p className="text-gray-500 text-sm mt-1">
               Manage your product catalog and variants
             </p>
           </div>
           <button
             onClick={() => setOpen(true)}
-            className="flex items-center cursor-pointer gap-2 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+            className="flex items-center cursor-pointer text-sm gap-2 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white p-2.5  rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
           >
-            <Plus size={20} />
+            <Plus size={14} />
             Add Product
           </button>
         </div>

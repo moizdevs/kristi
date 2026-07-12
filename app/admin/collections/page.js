@@ -122,10 +122,10 @@ const CollectionsPage = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white backdrop-blur-sm border-b w-full border-slate-200 sticky top-0 z-10 p-6">
+      <div className="bg-white backdrop-blur-sm border-b w-full border-slate-200 sticky text-base top-0 z-10 p-6">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
+            <h2 className="md:text-2xl font-bold text-gray-900">Collections</h2>
             <p className="text-gray-500 text-sm mt-1">Organize your products into collections</p>
           </div>
           <button
@@ -138,9 +138,9 @@ const CollectionsPage = () => {
               setSearchTerm("");
               setShowCreateForm(true);
             }}
-            className="flex items-center gap-2 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+            className="flex text-xs items-center gap-2 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-2.5 py-2.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
           >
-            <Plus size={20} />
+            <Plus size={14} />
             Create Collection
           </button>
         </div>
