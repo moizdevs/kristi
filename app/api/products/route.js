@@ -4,6 +4,13 @@ import connectToDatabase from "@/lib/dbConnect";
 import { Product } from "@/Models/Product";
 import { Collection } from "@/Models/Collection";
 import { NextResponse } from "next/server";
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request) {
   await connectToDatabase();
@@ -21,7 +28,6 @@ export async function POST(request) {
     const collection = formData.get("collection") || "";
     const hasVariants = formData.get("hasVariants") === "true";
 
-    // Get variants and options if they exist
     let options = [];
     let variants = [];
 
@@ -48,23 +54,30 @@ export async function POST(request) {
       );
     }
 
-    // Ensure upload directory exists
-    const uploadDir = path.join(process.cwd(), "public/uploads");
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-
+    // Upload all images to Cloudinary
     const imageUrls = [];
 
     for (const file of files) {
       if (!file || file.size === 0) continue;
 
       const buffer = Buffer.from(await file.arrayBuffer());
-      const fileName = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
-      const filePath = path.join(uploadDir, fileName);
 
-      await fs.promises.writeFile(filePath, buffer);
-      imageUrls.push(`/uploads/${fileName}`);
+      // Upload to Cloudinary
+      const uploadResult = await new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          {
+            resource_type: 'auto',
+            folder: 'products', // Organize in products folder
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        uploadStream.end(buffer);
+      });
+
+      imageUrls.push(uploadResult.secure_url); // ✅ Cloudinary URL
     }
 
     // Create product data object
