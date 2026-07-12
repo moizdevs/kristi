@@ -1,9 +1,10 @@
 import { Collection } from "@/Models/Collection";
 import ProductAddCard from "@/app/components/CollecProdAddCard";
+import connectToDatabase from "@/lib/dbConnect";
 
 const page = async ({ params }) => {
   const { collection_id } =await params;
-
+  await connectToDatabase();
   const collection = await Collection.findById(collection_id).populate(
     "products"
   );
