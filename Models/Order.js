@@ -1,7 +1,7 @@
 // Models/Order.js
 // Updated Order model to include buyerName and buyerPhone fields, as collected in the form.
 
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
   // userId removed since no auth
