@@ -1,6 +1,7 @@
 import { Product } from "@/Models/Product";
 import connectToDatabase from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
+import { Collection } from "@/Models/Collection";
 
 export async function GET(request) {
   await connectToDatabase();
