@@ -50,7 +50,7 @@ export default function Home() {
             <Link key={product._id} href={`/product/${product._id}`}>
               <div className="group relative bg-white border border-gray-100 rounded-sm overflow-hidden ">
                 {/* Image */}
-                <div className="relative h-38 md:h-64 overflow-hidden bg-[#f3f3f3]">
+                <div className="relative h-58 md:h-74 overflow-hidden bg-[#f3f3f3]">
                   <img
                     src={product.images?.[0] || product.images?.[1]}
                     alt={product.title}
@@ -59,11 +59,11 @@ export default function Home() {
 
                   {/* Sale Badge */}
                   {product.compareAtPrice > product.price && (
-                    <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold rounded-full h-12 flex justify-center items-center w-12 uppercase tracking-widest">
+                    <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest">
                       {Math.round(
                         (product.price * 100) / product.compareAtPrice,
                       )}
-                      %
+                      % off
                     </span>
                   )}
 

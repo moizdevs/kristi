@@ -82,13 +82,13 @@ const Page = () => {
     <div className="w-[96%] mx-auto mt-10 flex flex-col lg:flex-row gap-6">
       {/* LEFT SIDEBAR */}
       <aside className="w-full lg:w-64  p-5 rounded-xl h-fit">
-        <h2 className="text-xl font-bold mb-6 text-gray-800">Filters</h2>
+        <h2 className="md:text-xl text-base font-bold mb-6 text-gray-800">Filters</h2>
 
         {/* COLLECTIONS */}
         <div className="mb-5">
           <button
             onClick={() => toggleAccordion("collections")}
-            className="flex justify-between w-full font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
+            className="flex justify-between w-full text-sm md:text-xl font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
           >
             Collections{" "}
             {openFilter.collections ? (
@@ -127,7 +127,7 @@ const Page = () => {
         <div className="mb-5">
           <button
             onClick={() => toggleAccordion("vendors")}
-            className="flex justify-between w-full font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
+            className="flex justify-between w-full text-sm md:text-xl font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
           >
             Vendors{" "}
             {openFilter.vendors ? (
@@ -162,7 +162,7 @@ const Page = () => {
         <div className="mb-5">
           <button
             onClick={() => toggleAccordion("types")}
-            className="flex justify-between w-full font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
+            className="flex justify-between w-full text-sm md:text-xl font-semibold text-gray-700 uppercase mb-2 hover:text-blue-600 transition-colors"
           >
             Types{" "}
             {openFilter.types ? (
@@ -195,7 +195,7 @@ const Page = () => {
 
         {/* SORT */}
         <div className="mb-5">
-          <h3 className="text-sm font-semibold mb-2 text-gray-700 uppercase">
+          <h3 className="font-semibold text-sm md:text-xl mb-2 text-gray-700 uppercase">
             Sort By
           </h3>
           <select
@@ -260,12 +260,12 @@ const Page = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 max-[1200px]:grid-cols-3 max-[930px]:grid-cols-2 gap-6">
           {filteredProducts.map((product) => (
             <Link key={product._id} href={`/product/${product._id}`}>
               <div className="group relative bg-white border border-gray-100 rounded-sm overflow-hidden ">
                 {/* Image */}
-                <div className="relative h-64 overflow-hidden bg-[#f3f3f3]">
+                <div className="relative h-58 md:h-74 overflow-hidden bg-[#f3f3f3]">
                   <img
                     src={product.images?.[0] || product.images?.[1]}
                     alt={product.title}

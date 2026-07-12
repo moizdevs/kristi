@@ -127,7 +127,7 @@ const Navbar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="flex h-18 md:h-24 items-center justify-between sticky top-0 z-20 border-b border-b-[#e7e7e7] bg-white px-4 md:px-0">
+      <nav className="flex h-21 md:h-28 items-center justify-between sticky top-0 z-20 border-b border-b-[#e7e7e7] bg-white px-4 md:px-0">
         {/* LOGO */}
         <div className="md:px-8">
           <Link href={"/"}>
