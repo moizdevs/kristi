@@ -48,7 +48,7 @@ const Collections = () => {
       <div className="px-3 sm:px-4 md:px-6 pb-8">
         {status === "loading" && (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-            {Array.from({ length: 10 }).map((_, i) => (
+            {Array.from({ length: 6 }).map((_, i) => (
               <CollectionSkeleton key={i} />
             ))}
           </div>

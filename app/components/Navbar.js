@@ -128,7 +128,8 @@ const Navbar = () => {
       {/* NAVBAR */}
       <nav className="flex h-21 md:h-28 items-center justify-between sticky top-0 z-20 border-b border-b-[#e7e7e7] bg-white px-4 md:px-0">
         {/* LOGO */}
-        <div className="md:px-8">
+        <div className="flex gap-4 items-center">
+          <div className="md:px-8">
           <Link href={"/"}>
             <img
               width={80}
@@ -149,6 +150,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        </div>
 
         {/* RIGHT ICONS */}
         <div className="flex gap-4 md:gap-6 px-0 md:px-6 items-center">

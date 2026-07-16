@@ -8,7 +8,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [agree, setAgree] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -17,7 +17,7 @@ const LoginPage = () => {
       alert("You must agree to terms and conditions");
       return;
     }
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
       const res = await fetch("/api/login", {
         method: "POST",
@@ -26,10 +26,10 @@ const LoginPage = () => {
       });
       const response = await res.json();
       if (response.status === 200) {
-        router.push("/admin/dashboard")
+        router.push("/admin/dashboard");
       } else {
-        alert(response.message)
-      };
+        alert(response.message);
+      }
     } catch {
       alert("Something went wrong");
     }
@@ -38,14 +38,12 @@ const LoginPage = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000]">
-
       {/* Background orbs */}
       <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-[#7c6fff]/30 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-[#534AB7]/30 blur-3xl pointer-events-none" />
 
       {/* Card */}
       <div className="relative z-10 w-full max-w-md mx-4 bg-white border border-white/10 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
-
         {/* Brand */}
         <div className="flex flex-col items-center mb-7">
           <div className="w-13 h-13 flex items-center justify-center bg-linear-to-br from-[#7c6fff] to-[#534AB7] rounded-xl mb-3 p-3">
@@ -54,7 +52,9 @@ const LoginPage = () => {
           <h1 className="text-black text-xl font-semibold tracking-[0.2em] uppercase">
             Kristi
           </h1>
-          <p className="text-black/40 text-xs tracking-widest mt-1">Admin Console</p>
+          <p className="text-black/40 text-xs tracking-widest mt-1">
+            Admin Console
+          </p>
         </div>
 
         <hr className="border-black/10 mb-5" />
@@ -68,44 +68,43 @@ const LoginPage = () => {
         </div>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
-
           {/* Username */}
-          <div>
-            <label className="block text-black/50 text-[11px] font-medium tracking-widest uppercase mb-2">
-              Username
-            </label>
+          <div class="relative z-0 w-full mb-5 group">
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your username"
+              placeholder=""
               required
-              className="w-full bg-black/7 border border-black/10 rounded-xl text-black text-sm placeholder-black/25 px-4 py-3 outline-none focus:border-[#7c6fff]/70 focus:bg-white/10 transition"
+              class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-[#999999] appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
             />
+            <label
+              class="absolute text-sm text-[#999999] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+            >
+              Username
+            </label>
           </div>
 
           {/* Password */}
-          <div>
-            <label className="block text-black/50 text-[11px] font-medium tracking-widest uppercase mb-2">
+          <div class="relative z-0 w-full mb-5 group">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder=""
+              required
+              class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-[#999999] appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 cursor-pointer top-1/2 -translate-y-1/2 text-[#999999] hover:text-[#5a5a5a] transition"
+            >
+              {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
+            </button>
+            <label class="absolute text-sm text-[#999999] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
               Password
             </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                required
-                className="w-full bg-black/7 border border-black/10 rounded-xl text-black text-sm placeholder-black/25 px-4 py-3 pr-10 outline-none focus:border-[#7c6fff]/70 focus:bg-white/10 transition"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/35 hover:text-white/70 transition"
-              >
-                {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
-              </button>
-            </div>
           </div>
 
           {/* Terms */}
@@ -130,7 +129,7 @@ const LoginPage = () => {
             disabled={isSubmitting}
             className="w-full py-3 mt-1 bg-linear-to-r from-[#7c6fff] to-[#534AB7] text-white text-sm font-medium rounded-xl hover:opacity-90 active:scale-[0.98] transition cursor-pointer"
           >
-            {isSubmitting ? "Signing In...":"Sign in to Dashboard"}
+            {isSubmitting ? "Signing In..." : "Sign in to Dashboard"}
           </button>
         </form>
 
