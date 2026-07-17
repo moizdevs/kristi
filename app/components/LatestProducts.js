@@ -11,7 +11,7 @@ export default function LatestProducts() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch("/api/getProducts")
+    fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products.slice(0, 4)); // ✅ FIX

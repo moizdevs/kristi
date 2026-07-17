@@ -175,9 +175,6 @@ const Page = () => {
 
                 {/* Content */}
                 <div className="p-4 flex flex-col items-center text-center">
-                  <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-1">
-                    Premium Selection
-                  </span>
                   <h3 className="text-sm font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-blue-900 transition-colors">
                     {product.title}
                   </h3>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/redux/cart/cartSlice";
@@ -14,6 +14,8 @@ const Page = () => {
   const [selectedVendors, setSelectedVendors] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [sort, setSort] = useState("");
+  const [pagination, setPagination] = useState();
+  const pageRef = useRef(1);
 
   // Accordion open states
   const [openFilter, setOpenFilter] = useState({
@@ -25,9 +27,10 @@ const Page = () => {
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
-    const res = await fetch("/api/getProducts");
+    const res = await fetch(`/api/shop?page=${pageRef.current}`);
     const data = await res.json();
     setProducts(data.products || []);
+    setPagination(data.totalProducts || 0);
   };
 
   useEffect(() => {
@@ -82,7 +85,9 @@ const Page = () => {
     <div className="w-[96%] mx-auto mt-10 flex flex-col lg:flex-row gap-6">
       {/* LEFT SIDEBAR */}
       <aside className="w-full lg:w-64  p-5 rounded-xl h-fit">
-        <h2 className="md:text-xl text-base font-bold mb-6 text-gray-800">Filters</h2>
+        <h2 className="md:text-xl text-base font-bold mb-6 text-gray-800">
+          Filters
+        </h2>
 
         {/* COLLECTIONS */}
         <div className="mb-5">
@@ -309,9 +314,6 @@ const Page = () => {
 
                 {/* Content */}
                 <div className="p-4 flex flex-col items-center text-center">
-                  <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-1">
-                    Premium Selection
-                  </span>
                   <h3 className="text-sm font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-blue-900 transition-colors">
                     {product.title}
                   </h3>
@@ -333,6 +335,63 @@ const Page = () => {
             </Link>
           ))}
         </div>
+
+        <nav
+          className="flex justify-center my-16"
+          aria-label="Page navigation example"
+        >
+          <ul className="flex -space-x-px text-sm">
+            <li
+              onClick={async () => {
+                if (pageRef.current > 1) {
+                  pageRef.current = pageRef.current - 1;
+                  await fetchProducts();
+                  console.log(pageRef.current);
+                }
+              }}
+            >
+              <a
+                href="#"
+                className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm px-3 h-9 focus:outline-none"
+              >
+                Previous
+              </a>
+            </li>
+            {Array.from({ length: Math.ceil(pagination / 6) }, (_, i) => (
+              <li
+                onClick={async () => {
+                  console.log(pageRef.current);
+
+                  pageRef.current = i + 1;
+                  await fetchProducts();
+                  console.log(pageRef.current);
+                }}
+              >
+                <a
+                  href="#"
+                  className={`${pageRef.current==i+1?"underline":null} flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm px-3 h-9 focus:outline-none`}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+            <li
+              onClick={async () => {
+                if (pageRef.current < Math.ceil(pagination / 6)) {
+                  pageRef.current = pageRef.current + 1;
+                  if (pagination) await fetchProducts();
+                }
+              }}
+            >
+              <a
+                href="#"
+                className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm px-3 h-9 focus:outline-none"
+              >
+                Next
+              </a>
+            </li>
+          </ul>
+        </nav>
       </main>
     </div>
   );

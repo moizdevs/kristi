@@ -52,7 +52,7 @@ const ProductAddCard = (props) => {
 
         {/* 🔍 Sort Dropdown (same UI, added logic only) */}
         <select
-          className="mt-4 md:mt-0 rounded-lg px-4 py-2 bg-gray-50"
+          className="mt-4 md:mt-0 rounded-lg px-4 py-2 bg-gray-50 outline-none"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
         >
@@ -63,8 +63,8 @@ const ProductAddCard = (props) => {
         </select>
       </div>
 
-      {/* 🧱 Products Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+      {/* Products Grid */}
+      <div className="grid grid-cols-4 max-[1200px]:grid-cols-3 max-[930px]:grid-cols-2 gap-6 p-6">
         {sortedProducts.map((product) => (
           <Link key={product._id} href={`/product/${product._id}`}>
             <div className="group relative bg-white border border-gray-100 rounded-sm overflow-hidden">
@@ -100,7 +100,7 @@ const ProductAddCard = (props) => {
                       );
                       setTimeout(() => setAddingId(null), 1200);
                     }}
-                    className={`w-full py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
+                    className={`w-full py-2 text-xs cursor-pointer font-bold uppercase tracking-widest transition-all duration-300 ${
                       addingId === product._id
                         ? "bg-black text-white scale-95 ring-2 ring-green-300"
                         : "bg-black text-white hover:scale-[0.98]"
@@ -113,9 +113,6 @@ const ProductAddCard = (props) => {
 
               {/* Content */}
               <div className="p-4 flex flex-col items-center text-center">
-                <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-1">
-                  Premium Selection
-                </span>
                 <h3 className="text-sm font-bold text-gray-900 line-clamp-1 mb-1">
                   {product.title}
                 </h3>
