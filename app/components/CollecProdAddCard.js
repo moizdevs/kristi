@@ -84,7 +84,7 @@ const ProductAddCard = (props) => {
                 )}
 
                 {/* Add to Cart */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <div className="absolute inset-0 bg-black/5 max-[500px]:opacity-100 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <button
                     onClick={(e) => {
                       e.preventDefault();
