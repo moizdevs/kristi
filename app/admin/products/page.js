@@ -287,7 +287,7 @@ const Page = () => {
 
       {/* Products Grid */}
       {products.length > 0 ? (
-        <div className="grid grid-cols-4 max-[1200px]:grid-cols-3 max-[930px]:grid-cols-2 mx-auto w-11/12 gap-6">
+        <div className="grid grid-cols-4 max-[1200px]:grid-cols-3 max-[930px]:grid-cols-2  gap-2">
           {products.map((product, index) => (
             <div
               key={product._id}
