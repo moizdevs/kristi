@@ -94,7 +94,7 @@ export default function Home() {
                         "Added ✓"
                       ) : (
                         <div className="flex items-center justify-center gap-2">
-                          <HugeiconsIcon icon={ShoppingCart02Icon} size={22} />{" "}
+                          <HugeiconsIcon className="max-[500px]:hidden inline-block" icon={ShoppingCart02Icon} size={22} />{" "}
                           Add to Cart
                         </div>
                       )}

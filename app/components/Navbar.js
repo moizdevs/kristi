@@ -94,7 +94,7 @@ const Navbar = () => {
     setSearchError(null);
     try {
       const response = await fetch(
-        `/api/getProducts?q=${encodeURIComponent(query)}`,
+        `/api/products?q=${encodeURIComponent(query)}`,
       );
       if (!response.ok) throw new Error("Failed to fetch products");
       const data = await response.json();
