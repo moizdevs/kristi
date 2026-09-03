@@ -6,6 +6,7 @@ import Collections from "../collections/page";
 import Reviews from "../reviews/page";
 import Reports from "../reports/page";
 import Products from "../products/page";
+import Image from "next/image";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -133,7 +134,7 @@ const Page = () => {
             {sidebarOpen ? (
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <img src="/Logo.png" className="invert h-6 w-6" alt="Logo" />
+                  <Image src="/Logo.png" height={24} width={24} className="invert" alt="Logo" />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">

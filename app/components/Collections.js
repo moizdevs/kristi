@@ -6,7 +6,7 @@ import { ArrowRight, AlertCircle, Boxes } from "lucide-react";
 
 const CollectionSkeleton = () => (
   <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-200 animate-pulse">
-    <div className="absolute inset-0 bg-gradient-to-t from-gray-300 to-transparent" />
+    <div className="absolute inset-0 bg-linear-to-t from-gray-300 to-transparent" />
   </div>
 );
 
@@ -97,7 +97,7 @@ const Collections = () => {
                   />
 
                   {/* Dark Overlay - Subtle */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100 group-hover:from-black/70 group-hover:via-black/30 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-100 group-hover:from-black/70 group-hover:via-black/30 transition-all duration-300" />
 
                   {/* Product Count Badge */}
                   {collection.productCount && (

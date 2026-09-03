@@ -89,7 +89,7 @@ export default function OrderForm({ products }) {
       {/* LEFT SIDE */}
       <div className="col-span-8 space-y-6">
         {/* Name */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">Name</label>
           <input
             type="text"
@@ -103,7 +103,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* Phone */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">Phone</label>
           <input
             type="tel"
@@ -117,7 +117,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* Street */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">Street</label>
           <input
             type="text"
@@ -131,7 +131,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* City */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">City</label>
           <input
             type="text"
@@ -148,7 +148,7 @@ export default function OrderForm({ products }) {
       {/* RIGHT SIDE */}
       <div className="col-span-4 space-y-6">
         {/* State */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">State</label>
           <input
             type="text"
@@ -162,7 +162,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* Zip Code */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">Zip Code</label>
           <input
             type="text"
@@ -176,7 +176,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* Country */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <label className="text-sm font-medium">Country</label>
           <input
             type="text"
@@ -191,7 +191,7 @@ export default function OrderForm({ products }) {
 
         {/* Quantities for each product */}
         {products.map((product, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg">
+          <div key={index} className="bg-white min-[1024px]:p-4 rounded-lg">
             <label className="text-sm font-medium">Quantity for {product.title}</label>
             <input
               type="number"
@@ -205,7 +205,7 @@ export default function OrderForm({ products }) {
         ))}
 
         {/* Summary */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <p className="text-sm font-medium">
             Total Amount: Rs. {products.reduce((sum, product, index) => sum + (quantities[index] * product.price), 0)}
           </p>
@@ -213,7 +213,7 @@ export default function OrderForm({ products }) {
         </div>
 
         {/* Submit Button */}
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white min-[1024px]:p-4 rounded-lg">
           <button
             type="submit"
             onClick={handleSubmit}
