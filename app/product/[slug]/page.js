@@ -1,9 +1,9 @@
 import connectToDatabase from "@/lib/dbConnect";
 import { Product } from "@/Models/Product";
-import ProductDetails from "@/app/components/ProductDetails";
-import LatestProducts from "@/app/components/LatestProducts";
-import ProductTabs from "@/app/components/Tabs";
-import Rating from "@/app/components/Rating";
+import ProductDetails from "@/components/ProductDetails";
+import LatestProducts from "@/components/LatestProducts";
+import ProductTabs from "@/components/Tabs";
+import Rating from "@/components/Rating";
 
 export default async function Page({ params }) {
   const { slug } = await params;

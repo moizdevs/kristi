@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import OrderForm from "@/app/components/OrderForm";
+import OrderForm from "@/components/OrderForm";
 import { Package } from "lucide-react";
 
 export default function CheckoutPage() {

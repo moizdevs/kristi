@@ -1,5 +1,5 @@
 import { Collection } from "@/Models/Collection";
-import ProductAddCard from "@/app/components/CollecProdAddCard";
+import ProductAddCard from "@/components/CollecProdAddCard";
 import connectToDatabase from "@/lib/dbConnect";
 import { Product } from "@/Models/Product";
 
