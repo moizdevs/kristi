@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../redux/cart/cartSlice"; // Adjust path to your cartSlice
 import { ShoppingCart02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Banner from "./components/Banner";
-import Terms from "./components/Terms";
-import HighlightSection from "./components/HighLightSection";
-import TestimonialSection from "./components/TestimonialsSection";
-import Hero from "./components/Hero";
-import Collections from "./components/Collections";
+import Banner from "@/components/Banner";
+import Terms from "@/components/Terms";
+import HighlightSection from "@/components/HighLightSection";
+import TestimonialSection from "@/components/TestimonialsSection";
+import Hero from "@/components/Hero";
+import Collections from "@/components/Collections";
 
 export default function Home() {
   const [products, setProducts] = useState([]);

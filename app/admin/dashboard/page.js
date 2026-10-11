@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Dashboard from "@/app/components/Dashboard";
+import Dashboard from "@/components/Dashboard";
 import Orders from "../orders/page";
 import Collections from "../collections/page";
 import Reviews from "../reviews/page";

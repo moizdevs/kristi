@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { removeItem, updateQuantity } from "../../redux/cart/cartSlice";
+import { removeItem, updateQuantity } from "@/redux/cart/cartSlice";
 import {
   Search01Icon,
   ShoppingCart02Icon,
@@ -134,7 +134,7 @@ const Navbar = () => {
             <img
               width={80}
               className="md:w-25"
-              src="/Logo.png"
+              src="/Logo.svg"
               alt="Logo"
             />
           </Link>
