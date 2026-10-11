@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import ProductGallery from "@/app/components/ProductGallery";
-import QuantityPicker from "@/app/components/QuantityPicker";
+import ProductGallery from "./ProductGallery";
+import QuantityPicker from "./QuantityPicker";
 import { addItem } from "@/redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
