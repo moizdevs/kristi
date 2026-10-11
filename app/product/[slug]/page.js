@@ -17,8 +17,8 @@ export default async function Page({ params }) {
         <ProductDetails product={JSON.stringify(product)} />
         <ProductTabs description={product.description} reviews={""}/>
         {/* Latest products */}
-        <LatestProducts />
         <Rating item={JSON.stringify(product)}/>
+        <LatestProducts />
       </div>
     </>
   );
